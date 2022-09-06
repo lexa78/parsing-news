@@ -1,8 +1,8 @@
 # Разворачивание приложения
 
-- ```git clone https://github.com/lexa78/parsing-news.git```
-- ```cd parsing-news```
-- ```mv .env.example .env```
+- `git clone https://github.com/lexa78/parsing-news.git`
+- `cd parsing-news`
+- `mv .env.example .env`
 - ```
   docker run --rm \
          -u "$(id -u):$(id -g)" \
@@ -11,18 +11,18 @@
          laravelsail/php81-composer:latest \
          composer install --ignore-platform-reqs
   ```
-- ```docker-compose up -d```
-- ```docker exec -it parsing-news_laravel.test1 php artisan migrate```
-- ```docker exec -it parsing-news_laravel.test1 php artisan storage:link```
-\
+- `docker-compose up -d`
+- `docker exec -it parsing-news_laravel.test1 php artisan migrate`
+- `docker exec -it parsing-news_laravel.test1 php artisan storage:link`
+
 ##Приложение развернуто
 **Для запуска парсера нужно выполнить команду**\
-```docker exec -it parsing-news_laravel.test1 php artisan news:parse```\
+`docker exec -it parsing-news_laravel.test1 php artisan news:parse`\
 **Или**\
-```docker exec -it parsing-news_laravel.test1 php artisan news:parse rbk```
-
-***Посмотреть результат парсинга можно на [localhost](http://localhost/)***
+`docker exec -it parsing-news_laravel.test1 php artisan news:parse rbk`
 \
+***Посмотреть результат парсинга можно на [localhost](http://localhost/)***
+
 ##Расширение функционала
 **Для парсинга другого сайта, нужно сделать следующее:**
 * в БД в таблицу **parse_settings** внести информацию о новом сайте.
