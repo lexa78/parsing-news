@@ -16,9 +16,9 @@
 - ```docker exec -it parsing-news_laravel.test1 php artisan storage:link```
 \
 <h3>Приложение развернуто</h3>
-**Для запуска парсера нужно выполнить команду**\
+***Для запуска парсера нужно выполнить команду***\
 ```docker exec -it parsing-news_laravel.test1 php artisan news:parse```<br>
-**Или**\
+***Или***\
 ```docker exec -it parsing-news_laravel.test1 php artisan news:parse rbk```
 
 ***Посмотреть результат парсинга можно на [localhost](http://localhost/)***
