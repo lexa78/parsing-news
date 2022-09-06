@@ -14,7 +14,7 @@
 - ```docker-compose up -d```
 - ```docker exec -it parsing-news_laravel.test1 php artisan migrate```
 - ```docker exec -it parsing-news_laravel.test1 php artisan storage:link```
-
+<br>
 ##Приложение развернуто
 Для запуска парсера нужно выполнить команду<br>
 ```docker exec -it parsing-news_laravel.test1 php artisan news:parse```<br>
@@ -22,7 +22,7 @@
 ```docker exec -it parsing-news_laravel.test1 php artisan news:parse rbk```
 
 ***Посмотреть результат парсинга можно на [localhost](http://localhost/)***
-
+<br>
 ##Расширение функционала
 Для парсинга другого сайта, нужно сделать следующее:
 * в БД в таблицу **parse_settings** внести информацию о новом сайте.
@@ -33,7 +33,7 @@
 * Создать класс парсера для нового сайта, реализующий интерфейс **SiteParserInterface**. Класс должен находиться по пути 
 **App\Service** и его название должно начинаться с кода, который внесли в таблицу **parse_settings** в **code** и 
 заканчиваться словом **Parser**
-
+<br>
 ##Пример
 Если нужно спарсить сайт **google.com**, вносим нужные записи в БД, код, например **google** и создаем класс 
 **App\Service\GoogleParser**, реализуем методы из интерфейса и запускаем команду
