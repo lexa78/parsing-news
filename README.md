@@ -15,15 +15,15 @@
 - ```docker exec -it parsing-news_laravel.test1 php artisan migrate```
 - ```docker exec -it parsing-news_laravel.test1 php artisan storage:link```
 \
-<h3>Приложение развернуто</h3>
-***Для запуска парсера нужно выполнить команду***\
-```docker exec -it parsing-news_laravel.test1 php artisan news:parse```<br>
-***Или***\
+##Приложение развернуто
+**Для запуска парсера нужно выполнить команду**\
+```docker exec -it parsing-news_laravel.test1 php artisan news:parse```\
+**Или**\
 ```docker exec -it parsing-news_laravel.test1 php artisan news:parse rbk```
 
 ***Посмотреть результат парсинга можно на [localhost](http://localhost/)***
 \
-<h3>Расширение функционала</h3>
+##Расширение функционала
 **Для парсинга другого сайта, нужно сделать следующее:**
 * в БД в таблицу **parse_settings** внести информацию о новом сайте.
 1. **code** - аргумент, который будет передаваться при запуске команы парсинга. (пример *rbk*)
@@ -34,7 +34,7 @@
 **App\Service** и его название должно начинаться с кода, который внесли в таблицу **parse_settings** в **code** и 
 заканчиваться словом **Parser**
 \
-<h3>Пример</h3>
+##Пример
 Если нужно спарсить сайт **google.com**, вносим нужные записи в БД, код, например **google** и создаем класс 
 **App\Service\GoogleParser**, реализуем методы из интерфейса и запускаем команду
 ```docker exec -it parsing-news_laravel.test1 php artisan news:parse google```
