@@ -1,20 +1,21 @@
 # Разворачивание приложения
 
-- `git clone https://github.com/lexa78/parsing-news.git`
-- `cd parsing-news`
-- `mv .env.example .env`
-- ```
+1. `git clone https://github.com/lexa78/parsing-news.git`
+2. `cd parsing-news`
+3. `mv .env.example .env`
+4. 
+```
   docker run --rm \
          -u "$(id -u):$(id -g)" \
          -v $(pwd):/var/www/html \
          -w /var/www/html \
          laravelsail/php81-composer:latest \
          composer install --ignore-platform-reqs
-  ```
-- `docker-compose up -d`
-- `docker exec -it parsing-news_laravel.test1 php artisan migrate`
-- `docker exec -it parsing-news_laravel.test1 php artisan storage:link`\
-последняя команда делает ссылку на папку с картинками, для их показа на сайте 
+```
+Затем билдим проект `docker-compose up -d`\
+Выполняем миграции `docker exec -it parsing-news_laravel.test1 php artisan migrate`\
+Делаем ссылку на картинки для показа на странице `docker exec -it parsing-news_laravel.test1 php artisan storage:link`
+ 
 ##Приложение развернуто
 **Для запуска парсера нужно выполнить команду**\
 `docker exec -it parsing-news_laravel.test1 php artisan news:parse`\
