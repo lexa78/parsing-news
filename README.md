@@ -13,8 +13,8 @@
   ```
 - `docker-compose up -d`
 - `docker exec -it parsing-news_laravel.test1 php artisan migrate`
-- `docker exec -it parsing-news_laravel.test1 php artisan storage:link`
-
+- `docker exec -it parsing-news_laravel.test1 php artisan storage:link`\
+последняя команда делает ссылку на папку с картинками, для их показа на сайте 
 ##Приложение развернуто
 **Для запуска парсера нужно выполнить команду**\
 `docker exec -it parsing-news_laravel.test1 php artisan news:parse`\
