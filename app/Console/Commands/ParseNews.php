@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Exceptions\BadArgumentException;
 use App\Exceptions\NotFoundException;
 use App\Models\Category;
 use App\Models\Image;
@@ -22,6 +23,9 @@ use function trim;
 use function class_exists;
 use function in_array;
 use function array_search;
+use function is_object;
+use function get_class;
+use function getType;
 
 /**
  * Class ParseNews
@@ -97,6 +101,16 @@ class ParseNews extends Command
 
         /** @var SiteParserInterface $pageParser */
         $pageParser = new $needleClass(Json::decode($parseSettings->selectors, true));
+        if (!($pageParser instanceof SiteParserInterface)) {
+            throw new BadArgumentException(
+                sprintf(
+                    'Object with interface %s is waiting, %s was received',
+                    SiteParserInterface::class,
+                    is_object($pageParser) ? get_class($pageParser) : getType($pageParser)
+                )
+            );
+        }
+
         $urls = $pageParser->getNeedleUrlsFromHtml($html);
         if (count($urls) === 0) {
             throw new NotFoundException('No links on news found on this page');
